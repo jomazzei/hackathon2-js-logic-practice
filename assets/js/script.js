@@ -15,26 +15,31 @@ var computerChoice = "";
 rock_div.addEventListener("click", function() {
     getUserChoice("rock");
     getComputerChoice();
+    gameLogic();
 })
 
 paper_div.addEventListener("click", function() {
     getUserChoice("paper");
     getComputerChoice();
+    gameLogic();
 })
 
 scissors_div.addEventListener("click", function() {
     getUserChoice("scissors");
     getComputerChoice();
+    gameLogic();
 })
 
 lizard_div.addEventListener("click", function() {
     getUserChoice("lizard");
     getComputerChoice();
+    gameLogic();
 })
 
 spock_div.addEventListener("click", function() {
     getUserChoice("spock");
     getComputerChoice();
+    gameLogic();
 })
 
 
@@ -50,6 +55,35 @@ function getComputerChoice() {
     computerChoice = choices[randomNumber];
     console.log("the computer chose " + computerChoice);
     return computerChoice;
+}
+
+function gameLogic() {
+    switch (userChoice + computerChoice) {
+        // User wins
+        case "rockscissors":
+        case "rocklizard":
+        case "paperrock":
+        case "paperspock":
+        case "scissorspaper":
+        case "scissorslizard":
+        case "lizardpaper":
+        case "lizardspock":
+        case "spockrock":
+        case "spockscissors":
+            console.log("User wins!!!!");
+            break;
+        // Draw state
+        case "rockrock":
+        case "paperpaper":
+        case "scissorsscissors":
+        case "lizardlizard":
+        case "spockspock":
+            console.log("It's a draw!");
+            break;
+        // If not matching either that means PC wins
+        default:
+            console.log("Computer wins!!!!!!!!!!!!");
+    }
 }
 
 
